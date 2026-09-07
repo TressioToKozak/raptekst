@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5ff3d" />
+    <meta name="description" content="Raptekst — rozpoznaj autora i tytuł polskiego rapowego numeru." />
+    <title>Raptekst — zgadnij numer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Raptekst — strona główna"><span>RAP</span>TEKST<i></i></a>
+      <button class="sound-btn" id="soundBtn" aria-label="Włącz lub wyłącz dźwięki" aria-pressed="true">
+        <span class="sound-bars"><i></i><i></i><i></i><i></i></span>DŹWIĘK
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="startScreen">
+        <div class="eyebrow">POLSKI RAP QUIZ <span>●</span> SEZON 01</div>
+        <h1>ZNasz<br /><em>TEKST?</em></h1>
+        <p class="hero-copy">Pięć numerów. Dziesięć sekund.<br />Udowodnij, że znasz je na pamięć.</p>
+
+        <div class="difficulty-wrap">
+          <p class="label">WYBIERZ POZIOM</p>
+          <div class="difficulty" role="radiogroup" aria-label="Poziom trudności">
+            <button data-level="easy" role="radio" aria-checked="false"><b>ŁATWY</b><small>ZWROTKA / REFREN</small></button>
+            <button class="active" data-level="normal" role="radio" aria-checked="true"><b>NORMALNY</b><small>2 WERSY</small></button>
+            <button data-level="hard" role="radio" aria-checked="false"><b>TRUDNY</b><small>1 WERS</small></button>
+          </div>
+        </div>
+
+        <button class="primary-btn" id="startBtn">ZACZYNAMY <span>↗</span></button>
+        <div class="stats"><span>5 PYTAŃ</span><i></i><span>10 SEKUND</span><i></i><span>2 PKT / RUNDA</span></div>
+      </section>
+
+      <section class="game hidden" id="gameScreen" aria-live="polite">
+        <div class="game-meta"><span id="roundLabel">RUNDA 01 / 05</span><span id="scoreLabel">WYNIK 00</span></div>
+        <div class="progress"><i id="progressBar"></i></div>
+        <div class="timer"><span id="timer">10</span><small>SEK</small></div>
+        <p class="quote-label">CO TO ZA NUMER?</p>
+        <blockquote id="quote"></blockquote>
+        <form id="answerForm" autocomplete="off">
+          <div class="inputs">
+            <label><span>AUTOR</span><input id="artistInput" placeholder="Wpisz wykonawcę..." /><div class="suggestions" id="artistSuggestions"></div></label>
+            <label><span>UTWÓR</span><input id="songInput" placeholder="Wpisz tytuł..." /><div class="suggestions" id="songSuggestions"></div></label>
+          </div>
+          <button class="primary-btn" type="submit">SPRAWDZAM <span>↗</span></button>
+        </form>
+      </section>
+
+      <section class="result hidden" id="resultScreen">
+        <div class="eyebrow">KONIEC GRY <span>●</span> RAPTEKST</div>
+        <p class="result-kicker">TWÓJ WYNIK</p>
+        <div class="final-score"><strong id="finalScore">00</strong><span>/ 10</span></div>
+        <h2 id="resultTitle">NIEŹLE!</h2>
+        <p id="resultCopy">Masz ucho do wersów. Jeszcze jedna runda?</p>
+        <button class="primary-btn" id="restartBtn">GRAM JESZCZE RAZ <span>↻</span></button>
+      </section>
+    </main>
+
+    <footer><span>© 2026 RAPTEKST</span><span>MADE FOR THE CULTURE</span></footer>
+    <div class="toast" id="toast"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
